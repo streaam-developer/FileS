@@ -7,14 +7,16 @@ load_dotenv()
 
 
 class Var(object):
-    MULTI_CLIENT = False
-    API_ID = int(environ.get("API_ID"))
-    API_HASH = str(environ.get("API_HASH"))
-    BOT_TOKEN = str(environ.get("BOT_TOKEN"))
+    MULTI_CLIENT = True
+    MULTI_TOKEN1 = str(getenv('MULTI_TOKEN1' , '7113839904:AAFq2eOjTZSuVqIuP1VMMbJ06euX-VVXNQM'))
+    MULTI_TOKEN2 = str(getenv('MULTI_TOKEN2' , '7034883166:AAFYA3oAaX6aIDOYgk55Jgd-ilHLwZGGsAM'))
+    API_ID = int(getenv('API_ID', '24010108'))
+    API_HASH = str(getenv('API_HASH', '8d89700b2fc09a3aa6c906cbed65b040'))
+    BOT_TOKEN = str(getenv('BOT_TOKEN' , '7185552648:AAFt8UMY1O_oFhewPHGSxuIBCkc_02rFQ2M'))
     SLEEP_THRESHOLD = int(environ.get("SLEEP_THRESHOLD", "60"))  # 1 minte
     WORKERS = int(environ.get("WORKERS", "6"))  # 6 workers = 6 commands at once
     BIN_CHANNEL = int(
-        environ.get("BIN_CHANNEL", None)
+        environ.get("BIN_CHANNEL", "-1002050269288")
     )  # you NEED to use a CHANNEL when you're using MULTI_CLIENT
     PORT = int(environ.get("PORT", 8080))
     BIND_ADDRESS = str(environ.get("WEB_SERVER_BIND_ADDRESS", "0.0.0.0"))
@@ -26,15 +28,15 @@ class Var(object):
             "s" if HAS_SSL else "", FQDN, "" if NO_PORT else ":" + str(PORT)
         )
 
-    DATABASE_URL = str(environ.get('DATABASE_URL'))
+    DATABASE_URL = str(environ.get('DATABASE_URL', "mongodb+srv://lajihi2115:lgAEiuZHs917nZgy@cluster0.lx88eg8.mongodb.net/?retryWrites=true&w=majority"))
     UPDATES_CHANNEL = str(environ.get('UPDATES_CHANNEL', "Telegram"))
-    OWNER_ID = int(environ.get('OWNER_ID', '777000'))
+    OWNER_ID = int(environ.get('OWNER_ID', '5791145987'))
     SESSION_NAME = str(environ.get('SESSION_NAME', 'F2LxBot'))
     FORCE_UPDATES_CHANNEL = environ.get('FORCE_UPDATES_CHANNEL', False)
     FORCE_UPDATES_CHANNEL = True if str(FORCE_UPDATES_CHANNEL).lower() == "true" else False
     ALLOWED_USERS = [x.strip("@ ") for x in str(environ.get("ALLOWED_USERS", "") or "").split(",") if x.strip("@ ")]
 
-    KEEP_ALIVE = str(environ.get("KEEP_ALIVE", "0").lower()) in  ("1", "true", "t", "yes", "y")
+    KEEP_ALIVE = str(environ.get("KEEP_ALIVE", "1").lower()) in  ("1", "true", "t", "yes", "y")
     IMAGE_FILEID = environ.get('IMAGE_FILEID', "https://deekshith.eu.org/static/MyFiles.png")
     TOS = environ.get("TOS", None)
     if TOS:
