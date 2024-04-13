@@ -8,11 +8,11 @@ load_dotenv()
 
 class Var(object):
     MULTI_CLIENT = True
-    MULTI_TOKEN1 = str(getenv('MULTI_TOKEN1' , '7113839904:AAFq2eOjTZSuVqIuP1VMMbJ06euX-VVXNQM'))
-    MULTI_TOKEN2 = str(getenv('MULTI_TOKEN2' , '7034883166:AAFYA3oAaX6aIDOYgk55Jgd-ilHLwZGGsAM'))
-    API_ID = int(getenv('API_ID', '24010108'))
-    API_HASH = str(getenv('API_HASH', '8d89700b2fc09a3aa6c906cbed65b040'))
-    BOT_TOKEN = str(getenv('BOT_TOKEN' , '7185552648:AAFt8UMY1O_oFhewPHGSxuIBCkc_02rFQ2M'))
+    MULTI_TOKEN1 = str(environ.get('MULTI_TOKEN1' , '7113839904:AAFq2eOjTZSuVqIuP1VMMbJ06euX-VVXNQM'))
+    MULTI_TOKEN2 = str(environ.get('MULTI_TOKEN2' , '7034883166:AAFYA3oAaX6aIDOYgk55Jgd-ilHLwZGGsAM'))
+    API_ID = int(environ.get('API_ID', '24010108'))
+    API_HASH = str(environ.get('API_HASH', '8d89700b2fc09a3aa6c906cbed65b040'))
+    BOT_TOKEN = str(environ.get('BOT_TOKEN' , '7185552648:AAFt8UMY1O_oFhewPHGSxuIBCkc_02rFQ2M'))
     SLEEP_THRESHOLD = int(environ.get("SLEEP_THRESHOLD", "60"))  # 1 minte
     WORKERS = int(environ.get("WORKERS", "6"))  # 6 workers = 6 commands at once
     BIN_CHANNEL = int(
