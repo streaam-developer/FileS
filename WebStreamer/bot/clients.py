@@ -5,6 +5,7 @@ import logging
 from os import environ
 from ..vars import Var
 from pyrogram import Client
+from FileS.WebStreamer.bot.parser import TokenParser
 from . import multi_clients, work_loads, StreamBot
 
 
