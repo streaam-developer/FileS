@@ -1,5 +1,5 @@
 # This file is a part of FileStreamBot
-
+from asyncio import sleep as asleep, gather
 import asyncio
 import logging
 from os import environ
