@@ -17,12 +17,12 @@ class Var(object):
     BIN_CHANNEL = int(
         environ.get("BIN_CHANNEL", "-1002050269288")
     )  # you NEED to use a CHANNEL when you're using MULTI_CLIENT
-    PORT = int(environ.get("PORT", 8080))
-    BIND_ADDRESS = str(environ.get("WEB_SERVER_BIND_ADDRESS", "0.0.0.0"))
+    PORT = int(environ.get("PORT", 8050))
+    BIND_ADDRESS = str(environ.get("WEB_SERVER_BIND_ADDRESS", "46.101.147.49"))
     PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
-    HAS_SSL = str(environ.get("HAS_SSL", "0").lower()) in ("1", "true", "t", "yes", "y")
-    NO_PORT = str(environ.get("NO_PORT", "0").lower()) in ("1", "true", "t", "yes", "y")
-    FQDN = str(environ.get("FQDN", BIND_ADDRESS))
+    HAS_SSL = str(environ.get("HAS_SSL", "1").lower()) in ("1", "true", "t", "yes", "y")
+    NO_PORT = str(environ.get("NO_PORT", "1").lower()) in ("1", "true", "t", "yes", "y")
+    FQDN = str(environ.get("FQDN", "devil.cinemanearme.online"))
     URL = "http{}://{}{}/".format(
             "s" if HAS_SSL else "", FQDN, "" if NO_PORT else ":" + str(PORT)
         )
