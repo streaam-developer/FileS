@@ -25,10 +25,10 @@ async def initialize_clients():
                 await asleep(2)
             client = await Client(
                 name=str(client_id),
-                api_id=Telegram.API_ID,
-                api_hash=Telegram.API_HASH,
+                api_id=Var.API_ID,
+                api_hash=Var.API_HASH,
                 bot_token=token,
-                sleep_threshold=Telegram.SLEEP_THRESHOLD,
+                sleep_threshold=Var.SLEEP_THRESHOLD,
                 no_updates=True,
                 in_memory=True
             ).start()
@@ -41,7 +41,7 @@ async def initialize_clients():
     clients = await gather(*[start_client(i, token) for i, token in all_tokens.items()])
     multi_clients.update(dict(clients))
     if len(multi_clients) != 1:
-        Telegram.MULTI_CLIENT = True
+        Var.MULTI_CLIENT = True
         LOGGER.info("Multi-Client Mode Enabled")
     else:
         LOGGER.info(
