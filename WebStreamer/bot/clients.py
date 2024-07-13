@@ -4,7 +4,7 @@ import asyncio
 import logging
 from os import environ
 from ..vars import Var
-from bot import LOGGER
+from WebStreamer import LOGGER
 from pyrogram import Client
 from WebStreamer.bot.parser import TokenParser
 from . import multi_clients, work_loads, StreamBot
